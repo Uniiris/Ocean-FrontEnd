@@ -1,10 +1,15 @@
 .card{
   border: 1px solid black;
   border-radius: 1rem;
-  padding: 2rem
+  padding: 2rem;
   text-align: center;
+  background: #f8f8f8;
+  transition: all 0.1s ease-in-out;
+}
+
+.card:hover {
   box-shadow: 0.25rem 0.25rem black;
-  background: #f8f8f8
+  translate: 0.25 rem -0.25rem;
 }
 
 .card > h2 {
@@ -13,4 +18,11 @@
 
 .card > img {
   border-radius: 1rem;
+  transition: all 0.1s ease-in-out;
+  border: 0.1rem solid black;
+}
+
+.card:hover > img {
+  translate: 0.25 rem -0.25rem;
+  box-shadow: 0.25rem 0.25rem #fea6ca;
 }
