@@ -1,5 +1,4 @@
 import { useEffect, useState} from 'react'
-import './App.css'
 import Card from '../Card/Card'
 
 export default function Home() {
