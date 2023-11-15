@@ -5,12 +5,14 @@ import Card from './components/Card/Card'
 function App() {
   const item1 = {
     name: "Rick Sanchez",
-    imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+    imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+    tags: ["Status: Vivo", "Espécie: Humana", "Origem: Terra C-137"]
   }
 
   const item2 = {
-    name: "Morty ",
-    imageUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+    name: "Morty Smith ",
+    imageUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+    tags: ["Origem: Terra C-137"]
   }
 
   const item3 = {
@@ -22,15 +24,26 @@ function App() {
 
   const [items, setItems] = useState([])
 
-  async function carregarDadosApi(){ 
+  async function carregarDadosApi() { 
     const apiUrl = "https://rickandmortyapi.com/api/character/"
 
     const response = await fetch(apiUrl)
 
     const body = await response.json()
-    console.log(body);
 
-    setItems(body.results)
+    const results = body.results.map(function (element) {
+      return {
+        name: element.name,
+        image: element.image,
+        tags: [
+          'Status: ${element.status}',
+          'Species: ${element.species}',
+          'Origin: ${element.origin.name}'
+        ]
+      }
+    })
+
+    setItems(results)
   }
 
   useEffect(function () {
@@ -50,4 +63,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
