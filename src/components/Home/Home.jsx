@@ -1,10 +1,10 @@
-import { useEffect, useState} from 'react'
-import Card from '../Card/Card'
+import { useEffect, useState } from 'react';
+import Card from '../Card/Card';
 
 export default function Home() {
   const [items, setItems] = useState([])
 
-  async function carregarDadosApi() { 
+  async function carregarDadosApi() {
     const apiUrl = "https://rickandmortyapi.com/api/character/"
 
     const response = await fetch(apiUrl)
@@ -34,10 +34,10 @@ export default function Home() {
 
   return (
     <>
-    <div className='cards'>
-      {items.map(function(element) {
-        return <Card item={element} />
-      })}
+      <div className="cards">
+        {items.map(function (element) {
+          return <Card item={element} />
+        })}
       </div>
     </>
   )

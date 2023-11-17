@@ -6,6 +6,8 @@ export default function ReadById() {
 
     const[item, setItem] = useState({})
 
+    async function carregarDadosApi() {
+
     const apiUrl = `https://rickandmortyapi.com/api/character/${id}`
 
     const response = await fetch(apiUrl)
@@ -15,6 +17,7 @@ export default function ReadById() {
     setItem(body)
 
     console.log(body)
+    }
 
     useEffect(function() {
         carregarDadosApi()
